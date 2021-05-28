@@ -3,6 +3,7 @@
 #define INCLUDE_BST_H_
 #include<string>
 
+
 template<typename T>
 class BST{
   public:
@@ -15,16 +16,16 @@ struct Node{
   private:
     Node* root;
     Node* addNode (Node*,T);
-    void printTree(Node*);
     int depthTree(Node*);
     int searchNode (Node*,T);
+    void delTree(Node*);
   public:
     BST();
     ~BST();
   void add(T);
-  void print();
    int depth();
   int search(T);
+  void clear();
 };
 template<typename T>
 BST<T>::BST():root(nullptr){}
@@ -43,7 +44,7 @@ typename BST<T>::Node* BST<T>::addNode(Node *root,  T temp) {
     root -> count=1; 
     root -> left =nullptr;
     root -> right =nullptr;
-  } else if(root -> temp =temp){
+  } else if(root -> temp == temp){
       root-> count ++;
       return root;
   } else if(root -> temp > temp){
@@ -53,7 +54,46 @@ typename BST<T>::Node* BST<T>::addNode(Node *root,  T temp) {
   }
   return root;
 }
- 
+
+template<typename T>
+void BST<T>::delTree(Node * root)
+{if(root == nullptr)return;
+else {
+    delTree(root -> left);
+    delTree(root -> right);
+    delete root;
+}
+}
+
+template < typename T >
+void BST <T >:: add ( T temp ) {
+root = addNode ( root , temp ) ;
+}
+
+
+template < typename T >
+void BST <T >:: clear (){
+if( root )
+{
+delTree ( root ) ;
+root = nullptr ;
+}
+}
+
+template < typename T >
+int BST<T>::depthTree(Node *root){
+    if(root == nullptr) return 0;
+    else {
+        int lh = depthTree(root->left);
+        int rh = depthTree(root->right);
+        return ((lh>rh)?lh:rh)+1;
+    }
+}
+
+template < typename T >
+int BST <T >:: depth () {
+return depthTree( root);
+}
 
 
 
