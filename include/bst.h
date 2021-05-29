@@ -2,7 +2,7 @@
 #ifndef INCLUDE_BST_H_
 #define INCLUDE_BST_H_
 #include<string>
-
+#include <cassert>
 
 template<typename T>
 class BST{
@@ -25,7 +25,7 @@ struct Node{
   void add(T);
    int depth();
   int search(T);
-  void clear();
+ 
 };
 template<typename T>
 BST<T>::BST():root(nullptr){}
@@ -68,16 +68,6 @@ else {
 template < typename T >
 void BST <T >:: add ( T temp ) {
 root = addNode ( root , temp ) ;
-}
-
-
-template < typename T >
-void BST <T >:: clear (){
-if( root )
-{
-delTree ( root ) ;
-root = nullptr ;
-}
 }
 
 template < typename T >
