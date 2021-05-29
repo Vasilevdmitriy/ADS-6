@@ -5,9 +5,10 @@
 #include  <cstdlib>
 #include  "bst.h"
 
+
 BST<std::string> makeTree(const char* filename) {
-     BST<std::string>Tree;
-  char difFromAToa = 'a' - 'A';
+  BST<std::string>tree;
+  char c = 'a' - 'A';
   std::string word = "";
   std::ifstream file(filename);
   if (!file) {
@@ -18,13 +19,13 @@ BST<std::string> makeTree(const char* filename) {
     char ch = file.get();
     if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
       if (ch >= 'A' && ch <= 'Z')
-        ch += difFromAToa;
+        ch += c;
       word += ch;
     } else if (word != "") {
-      Tree.add(word);
+      tree.add(word);
       word = "";
     }
   }
   file.close();
-  return Tree;
+  return tree;
 }
