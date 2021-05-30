@@ -20,7 +20,8 @@ class BST {
       root = new Node;
       root->value = value;
       root->count = 1;
-      root->left = root->right = nullptr;
+      root->left = nullptr;
+      root->right = nullptr;
     } else if (root->value > value) {
       root->left = addNode(root->left, value);
     } else if (root->value < value) {
