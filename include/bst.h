@@ -13,7 +13,7 @@ class BST {
     Node* left;
     Node* right;
   };
- BST() :root(nullptr) {}
+BST() :root(nullptr) {}
   ~BST() {}
   void add(T value) {
     root = addNode(root, value);
@@ -23,8 +23,7 @@ class BST {
   }
   int search(T value) {
     return searchNode(root, value);
-  }
- 
+} 
  private:
   Node* root;
   Node* addNode(Node* root, T value) {
@@ -61,7 +60,6 @@ class BST {
     else
       return root->count;
   }
-
 };
 
 #endif  // INCLUDE_BST_H_
