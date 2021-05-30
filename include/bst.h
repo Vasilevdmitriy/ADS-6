@@ -63,8 +63,3 @@ class BST {
 };
 
 #endif  // INCLUDE_BST_H_
-
-
-
-
-#endif  // INCLUDE_BST_H_
